@@ -8,14 +8,18 @@ from PIL import ImageTk
 
 root = Tk()
 root.title('Storm-Z Login')
-root.geometry("1400x700")
+root.geometry("1450x720+45+20")
 # root.config(bg="#ffffff")
 root.resizable(True, True)
-
+def open_signup_window():
+    root.destroy()  # Close the current window if needed
+    # Importing SignUp module and calling its main function
+    import signup.py
+    signup.main()
 
 image_path = "Storm-Z_logo-removebg-preview.png"
 image = PhotoImage(file=image_path)
-button1=PhotoImage(file="submit_button.png")
+button1=PhotoImage(file="Loginsubmit_button.png")
 
 canvas = Canvas(root, width=1000, height=600, highlightthickness=0)
 canvas.create_image(170, 45, anchor="nw", image=image)
@@ -33,23 +37,38 @@ heading = Label(root, text="User Login", fg="#046bdc", padx=90, pady=10,bg="yell
 heading.place(relx=0.75, rely=0.15, anchor="center")
 
 username_label = Label(frame, text="Username", fg="black", font=("Microsoft Yahei UI Light", 20, "bold"))
-username_label.place(relx=0.5, rely=0.18, anchor="center")
+username_label.place(relx=0.5, rely=0.16, anchor="center")
 username_entry = Entry(frame, width=17, fg="black", border=2, bg="white", font=("Microsoft Yahei UI Light", 23, "bold"))
-username_entry.place(relx=0.5, rely=0.33, anchor="center")
+username_entry.place(relx=0.5, rely=0.32, anchor="center")
 
 password_label = Label(frame, text="Enter Password", fg="black", font=("Microsoft Yahei UI Light", 20, "bold"))
-password_label.place(relx=0.5, rely=0.54, anchor="center")
-password_entry = Entry(frame, width=17, fg="black", border=2, bg="white", font=("Microsoft Yahei UI Light", 23, "bold"))
-password_entry.place(relx=0.5, rely=0.69, anchor="center")
-
-button = Button(root, text='Sign In', width=25, command=root.destroy, bg="#ffdd53", pady=10, bd=0, borderwidth=0,font=("Arial", 20, "bold"), highlightthickness=0)
-button.place(relx=0.75, rely=0.87, anchor="center")
+password_label.place(relx=0.5, rely=0.51, anchor="center")
+password_entry = Entry(frame, width=17, fg="black", border=2, bg="white", show="*",font=("Microsoft Yahei UI Light", 23, "bold"))
+password_entry.place(relx=0.5, rely=0.66, anchor="center")
 
 SubmitButton=Button(frame,image=button1, border=0)
-SubmitButton.place(relx=0.5, rely=0.85, anchor="center")
+SubmitButton.place(relx=0.5, rely=0.87, anchor="center")
+
+username_label = Label(root, text="Not a user?", fg="black", font=("Times 20 italic bold", 19, "bold"))
+username_label.place(relx=0.75, rely=0.83, anchor="center")
+button = Button(root, text='Sign Up',command=open_signup_window,fg="blue",bg="#ffdd53",padx=50,pady=3,font=("Arial", 20, "bold"))
+button.place(relx=0.75, rely=0.91, anchor="center")
+# username_label = Label(root, text="Sign Up", fg="blue", font=("Times 20 italic bold", 19, "bold"))
+# username_label.place(relx=0.75, rely=0.89, anchor="center")
 
 root.mainloop()
 
+# def open_signup_window():
+#     root.destroy()  # Close the current window if needed
+#     # Importing SignUp module and calling its main function
+#     import SignUp
+#     SignUp.main()
+
+# root = tk.Tk()
+
+# # Create a button that, when clicked, opens the SignUp window
+# signup_button = Button(root, text="Sign Up", command=open_signup_window)
+# signup_button.pack()
 
 # # from tkinter import Tk, Label, Entry, Frame
 
