@@ -16,7 +16,7 @@ root.resizable(True, True)
 def open_login_window():
     root.destroy()  # Close the current window if needed
     # Importing SignUp module and calling its main function
-    import login.py
+    import login
     login.main()
 
 
@@ -39,22 +39,24 @@ frame.place(relx=0.75, rely=0.5, anchor="center")
 heading = Label(root, text="User Sign Up", fg="#046bdc", padx=90, pady=10,bg="yellow", font=("Arial", 25, "bold"))
 heading.place(relx=0.75, rely=0.08, anchor="center")
 
-username_label = Label(frame, text="Enter Username", fg="black", font=("Microsoft Yahei UI Light", 20, "bold"))
+username_label = Label(frame, text="Enter Username", fg="black", bg="#046bdc",font=("Microsoft Yahei UI Light", 20, "bold"))
 username_label.place(relx=0.1, rely=0.08, anchor="w")
-username_entry = Entry(frame, width=17, fg="black", border=2, bg="white", font=("Microsoft Yahei UI Light", 23, "bold"))
+username_entry = Entry(frame, width=17, fg="black", border=2, bg="white",font=("Microsoft Yahei UI Light", 23, "bold"))
 username_entry.place(relx=0.1, rely=0.19, anchor="w")
 
-password_label = Label(frame, text="Enter new Password", fg="black", font=("Microsoft Yahei UI Light", 20, "bold"))
+password_label = Label(frame, text="Enter new Password", fg="black", bg="#046bdc",font=("Microsoft Yahei UI Light", 20, "bold"))
 password_label.place(relx=0.1, rely=0.32, anchor="w")
 password_entry = Entry(frame, width=17, fg="black", border=2, bg="white", show="*",font=("Microsoft Yahei UI Light", 23, "bold"))
 password_entry.place(relx=0.1, rely=0.43, anchor="w")
+# password_entry.insert(0,"Password")
+# password_entry.bind("<FocusIn>",password_entry)
 
-password_label = Label(frame, text="Re-enter your Password", fg="black", font=("Microsoft Yahei UI Light", 20, "bold"))
+password_label = Label(frame, text="Re-enter your Password", fg="black", bg="#046bdc",font=("Microsoft Yahei UI Light", 20, "bold"))
 password_label.place(relx=0.1, rely=0.57, anchor="w")
 password_entry = Entry(frame, width=17, fg="black", border=2, bg="white", show="*",font=("Microsoft Yahei UI Light", 23, "bold"))
 password_entry.place(relx=0.1, rely=0.68, anchor="w")
 
-password_label = Label(frame, text="Select your Gender", fg="black", font=("Microsoft Yahei UI Light", 20, "bold"))
+password_label = Label(frame, text="Select your Gender", fg="black", bg="#046bdc",font=("Microsoft Yahei UI Light", 20, "bold"))
 password_label.place(relx=0.1, rely=0.81, anchor="w")
 gender = tk.StringVar()
 Radiobutton(frame, text="Male", variable=gender, value="Male", font=("Arial", 19)).place(relx=0.35, rely=0.92, anchor="e")

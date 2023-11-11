@@ -14,8 +14,14 @@ root.resizable(True, True)
 def open_signup_window():
     root.destroy()  # Close the current window if needed
     # Importing SignUp module and calling its main function
-    import signup.py
+    import signup
     signup.main()
+ 
+def open_homepage_window():
+    root.destroy()  
+    import homepage
+    homepage.main()   
+
 
 image_path = "Storm-Z_logo-removebg-preview.png"
 image = PhotoImage(file=image_path)
@@ -46,8 +52,8 @@ password_label.place(relx=0.5, rely=0.51, anchor="center")
 password_entry = Entry(frame, width=17, fg="black", border=2, bg="white", show="*",font=("Microsoft Yahei UI Light", 23, "bold"))
 password_entry.place(relx=0.5, rely=0.66, anchor="center")
 
-SubmitButton=Button(frame,image=button1, border=0)
-SubmitButton.place(relx=0.5, rely=0.87, anchor="center")
+SubmitButton=Button(frame,image=button1, command=open_homepage_window, border=0)
+SubmitButton.place(relx=0.5, rely=0.87,anchor="center")
 
 username_label = Label(root, text="Not a user?", fg="black", font=("Times 20 italic bold", 19, "bold"))
 username_label.place(relx=0.75, rely=0.83, anchor="center")
@@ -82,7 +88,7 @@ root.mainloop()
 # # username_label = Label(frame, text="Username", fg="black", font=("Microsoft Yahei UI Light", 20, "bold"))
 # # username_label.place(relx=0.5, rely=0.25, anchor="center")
 # # username_entry = Entry(frame, width=17, fg="black", border=2, bg="white", font=("Microsoft Yahei UI Light", 23, "bold"))
-# # username_entry.place(relx=0.5, rely=0.4, anchor="center")
+# # username_entry.place(relx=0.5, rely=0.5, anchor="center")
 # # password_label = Label(frame, text="Enter Password", fg="black", font=("Microsoft Yahei UI Light", 20, "bold"))
 # # password_label.place(relx=0.5, rely=0.6, anchor="center")
 # # password_entry = Entry(frame, width=17, fg="black", border=2, bg="white", font=("Microsoft Yahei UI Light", 23, "bold"))
