@@ -10,4 +10,5 @@ CREATE TABLE User (
     ProductName VARCHAR(255),
     TotalProductPrice DECIMAL(10, 2)
 );
+
 select * from User;

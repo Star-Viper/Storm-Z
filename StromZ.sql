@@ -9,4 +9,5 @@ CREATE TABLE IF NOT EXISTS selected_products (
     action_timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+
 SELECT * FROM selected_products;
