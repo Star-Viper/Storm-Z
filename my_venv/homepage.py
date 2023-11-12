@@ -1,4 +1,4 @@
-from tkinter import Tk, Label, Entry, Frame, PhotoImage, Canvas, Button
+from tkinter import *
 import tkinter as tk
 from tkinter import messagebox
 from PIL import Image, ImageTk
@@ -135,8 +135,6 @@ def delete_from_cart(delete_no):
     else:
         messagebox.showinfo("Cannot find the product !", "Please first enter the product in order to delete it")
 
-# ... (rest of your code)
-
 # homepg.mainloop()
 
 def add_to_cart(rectangle_number):
@@ -165,17 +163,25 @@ def delete_from_cart(delete_no):
     else:
         messagebox.showinfo("Cannot find the product !","Please first enter the product in order to delete it")
 
-
+#  blue color scheme
+# background_color = "#ADD8E6"  # Light Blue
+# button_color = "#1E90FF"  # Dodger Blue
+# canvas_color = "#B0DAFF"  # Sky Blue x lightblue
 
 #def Homepg():
 homepg = tk.Tk()
 homepg.title('Storm-Z Products')
-homepg.geometry("1450x720+45+20")
+homepg.geometry("1450x750+45+20")
 # homepg.config(bg="#ffffff")
 homepg.resizable(True, True)
 
-# canvas_homepg = tk.Canvas(homepg, width=900, height=700, bg='lightblue')
-canvas_homepg = tk.Canvas(homepg, width=1700, height=900, bg='lightblue')
+def open_aboutus_window():
+    homepg.destroy()  
+    import aboutus
+    aboutus.main() 
+
+# canvas_homepg = tk.Canvas(homepg, width=900, height=700, bg='#B0DAFF')
+canvas_homepg = tk.Canvas(homepg, width=1700, height=900, bg='#B0DAFF')
 canvas_homepg.pack()
 
 image_path = "Storm-Z_logo-removebg-preview.png"
@@ -184,13 +190,12 @@ canvas = Canvas(homepg, width=900, height=500, highlightthickness=0)
 canvas.create_image(170, 45, anchor="n", image=image)
 canvas.pack()
 # Images
-SZLogo = Image.open("Storm-Z_logo-removebg-preview.png").resize((340, 290))
+
 SZChoco = Image.open("StormZ_chocolate.jpeg").resize((248, 210))
 SZDfruit = Image.open("StormZ_dryfruits.jpeg").resize((260, 200))
 SZSpices = Image.open("StormZ_spices.jpeg").resize((248, 200))
 SZFruits = Image.open("StormZ_fruits.jpeg").resize((260, 210))
 
-SZLogo = ImageTk.PhotoImage(SZLogo)
 SZFruits = ImageTk.PhotoImage(SZFruits)
 SZChoco = ImageTk.PhotoImage(SZChoco)
 SZDfruit = ImageTk.PhotoImage(SZDfruit)
@@ -200,100 +205,125 @@ SZSpices = ImageTk.PhotoImage(SZSpices)
 canvas_width = canvas_homepg.winfo_width()
 canvas_height = canvas_homepg.winfo_height()
 
-# relx1, rely1, relx2, rely2 = 29 / canvas_width, 40 / canvas_height, 290 / canvas_width, 200 / canvas_height
-# rect1 = canvas_homepg.create_rectangle(relx1, rely1, relx2, rely2)
-
-# relx1, rely1, relx2, rely2 = 320 / canvas_width, 40 / canvas_height, 568 / canvas_width, 200 / canvas_height
-# rect2 = canvas_homepg.create_rectangle(relx1, rely1, relx2, rely2)
-
-# relx1, rely1, relx2, rely2 = 29 / canvas_width, 385 / canvas_height, 290 / canvas_width, 585 / canvas_height
-# rect3 = canvas_homepg.create_rectangle(relx1, rely1, relx2, rely2)
-
-# relx1, rely1, relx2, rely2 = 320 / canvas_width, 385 / canvas_height, 568 / canvas_width, 585 / canvas_height
-# rect4 = canvas_homepg.create_rectangle(relx1, rely1, relx2, rely2)
-
-canvas_homepg.create_image(600, 1, anchor=tk.NW, image=SZLogo)
-
-canvas_homepg.create_image(120, 189, anchor=tk.NW, image=SZFruits)
-canvas_homepg.create_image(440, 189, anchor=tk.NW, image=SZChoco)
-canvas_homepg.create_image(760, 189, anchor=tk.NW, image=SZDfruit)
-canvas_homepg.create_image(1080, 189, anchor=tk.NW, image=SZSpices)
-
-# canvas_homepg.create_image(30, 40, anchor=tk.NW, image=SZFruits)
-# canvas_homepg.create_image(320, 40, anchor=tk.NW, image=SZChoco)
-# canvas_homepg.create_image(30, 385, anchor=tk.NW, image=SZDfruit)
-# canvas_homepg.create_image(320, 385, anchor=tk.NW, image=SZSpices)
-
-
-
+canvas_homepg.create_image(120, 219, anchor=tk.NW, image=SZFruits)
+canvas_homepg.create_image(440, 219, anchor=tk.NW, image=SZChoco)
+canvas_homepg.create_image(760, 219, anchor=tk.NW, image=SZDfruit)
+canvas_homepg.create_image(1080, 219, anchor=tk.NW, image=SZSpices)
 
 # #Add to cart btns
-stylish_button_add1 = tk.Button(canvas_homepg, text="Add to Cart", font=("Arial", 12, "bold"), bg="#1640D6", fg="white", bd=4,
-                                command=lambda: add_to_cart_and_track(1))
-stylish_button_add1.place(x=190, y=457)
+# style = ttk.Style()
+# style.configure("Rounded.TButton", padding=10, relief="sunken", background="lightblue", foreground="blue",borderwidth=975)
+# style.map("Rounded.TButton", background=[("active", "darkblue")])
 
-stylish_button_add2 = tk.Button(canvas_homepg, text="Add to Cart", font=("Arial", 12, "bold"), bg="#1640D6", fg="white", bd=4,
-                                command=lambda: add_to_cart_and_track(2))
-stylish_button_add2.place(x=510, y=457)
+stylish_button_add1 = tk.Button(canvas_homepg, text="Add to Cart", font=("Arial", 12, "bold"), bg="#00A9FF", fg="white", bd=4,
+                                command=lambda: add_to_cart_and_track("Funky Fruits Fusion"))
 
-stylish_button_add3 = tk.Button(canvas_homepg, text="Add to Cart", font=("Arial", 12, "bold"), bg="#1640D6", fg="white", bd=4,
-                                command=lambda: add_to_cart_and_track(3))
-stylish_button_add3.place(x=830, y=457)
+stylish_button_add1.place(x=190, y=487)
 
-stylish_button_add4 = tk.Button(canvas_homepg, text="Add to Cart", font=("Arial", 12, "bold"), bg="#1640D6", fg="white", bd=4,
-                                command=lambda: add_to_cart_and_track(4))
-stylish_button_add4.place(x=1150, y=457)
+stylish_button_add2 = tk.Button(canvas_homepg, text="Add to Cart", font=("Arial", 12, "bold"), bg="#00A9FF", fg="white", bd=4,
+                                command=lambda: add_to_cart_and_track("Dazzling Dryfruit Delight"))
+stylish_button_add2.place(x=510, y=487)
+
+stylish_button_add3 = tk.Button(canvas_homepg, text="Add to Cart", font=("Arial", 12, "bold"), bg="#00A9FF", fg="white", bd=4,
+                                command=lambda: add_to_cart_and_track("Spice Spectacle Elixir"))
+stylish_button_add3.place(x=830, y=487)
+
+stylish_button_add4 = tk.Button(canvas_homepg, text="Add to Cart", font=("Arial", 12, "bold"), bg="#00A9FF", fg="white", bd=4,
+                                command=lambda: add_to_cart_and_track("Choco-Charm Craze"))
+stylish_button_add4.place(x=1150, y=487)
 
 
 # #Delete btns
-stylish_button_add4 = tk.Button(canvas_homepg, text="Delete from Cart", font=("Arial", 12, "bold"), bg="#e74c3c", fg="white", bd=4,
-                                command=lambda: delete_from_cart(1))
-stylish_button_add4.place(x=175, y=503)
+stylish_button_add4 = tk.Button(canvas_homepg, text="Delete from Cart", font=("Arial", 12, "bold"), bg="#4E31AA", fg="white", bd=4,
+                                highlightbackground="#1E90FF",  # Border color
+                                highlightcolor="#1E90FF",  # Border color for active state
+                                command=lambda: delete_from_cart("Funky Fruits Fusion"))
+stylish_button_add4.place(x=175, y=536)
 
-stylish_button_add4 = tk.Button(canvas_homepg, text="Delete from Cart", font=("Arial", 12, "bold"), bg="#e74c3c", fg="white", bd=4,
-                                command=lambda: delete_from_cart(2))
-stylish_button_add4.place(x=495, y=503)
+stylish_button_add4 = tk.Button(canvas_homepg, text="Delete from Cart", font=("Arial", 12, "bold"), bg="#4E31AA", fg="white", bd=4,
+                                command=lambda: delete_from_cart("Dazzling Dryfruit Delight"))
+stylish_button_add4.place(x=495, y=536)
 
-stylish_button_add4 = tk.Button(canvas_homepg, text="Delete from Cart", font=("Arial", 12, "bold"), bg="#e74c3c", fg="white", bd=4,
-                                command=lambda: delete_from_cart(3))
-stylish_button_add4.place(x=815, y=503)
+stylish_button_add4 = tk.Button(canvas_homepg, text="Delete from Cart", font=("Arial", 12, "bold"), bg="#4E31AA", fg="white", bd=4,
+                                command=lambda: delete_from_cart("Spice Spectacle Elixir"))
+stylish_button_add4.place(x=815, y=536)
 
-stylish_button_add4 = tk.Button(canvas_homepg, text="Delete from Cart", font=("Arial", 12, "bold"), bg="#e74c3c", fg="white", bd=4,
-                                command=lambda: delete_from_cart(4))
-stylish_button_add4.place(x=1135, y=503)
+stylish_button_add4 = tk.Button(canvas_homepg, text="Delete from Cart", font=("Arial", 12, "bold"), bg="#4E31AA", fg="white", bd=4,
+                                command=lambda: delete_from_cart("Choco-Charm Craze"))
+stylish_button_add4.place(x=1135, y=536)
 
 #Names
+username_label = Label(canvas_homepg, text="WELCOME TO ", bg="#B0DAFF", fg="#11009E", 
+                       font=("Arial", 43, "bold"),)
 
-username_label = Label(canvas_homepg, text="WELCOME TO ",bg="lightblue" ,fg="DARKBLUE", 
-                       font=("Arial", 40, "bold"))
-username_label.place(x=566, y=10)
+username_label.place(x=558, y=60)
 
-username_label = Label(canvas_homepg, text="Funky Fruits Fusion",bg="lightblue" ,fg="black", 
+SZLogo = Image.open("Storm-Z_logo-removebg-preview.png").resize((340, 290))
+SZLogo = ImageTk.PhotoImage(SZLogo)
+canvas_homepg.create_image(600, 40, anchor=tk.NW, image=SZLogo)
+
+
+
+username_label = Label(canvas_homepg, text="Funky Fruits Fusion",bg="#B0DAFF" ,fg="black", 
                        font=("Times 20 italic bold", 19, "bold","italic"))
-username_label.place(x=130, y=412)
+username_label.place(x=130, y=442)
 
-username_label = Label(canvas_homepg, text="Dazzling Dryfruit Delight",bg="lightblue" ,fg="black", 
+username_label = Label(canvas_homepg, text="Dazzling Dryfruit Delight",bg="#B0DAFF" ,fg="black", 
                        font=("Times 20 italic bold", 19, "bold","italic"))
-username_label.place(x=420, y=412)
+username_label.place(x=420, y=442)
 
-username_label = Label(canvas_homepg, text="Spice Spectacle Elixir",bg="lightblue" ,fg="black", 
+username_label = Label(canvas_homepg, text="Spice Spectacle Elixir",bg="#B0DAFF" ,fg="black", 
                        font=("Times 20 italic bold", 19, "bold","italic"))
-username_label.place(x=760, y=412)
+username_label.place(x=760, y=442)
 
-username_label = Label(canvas_homepg, text="Choco-Charm Craze",bg="lightblue" ,fg="black", 
+username_label = Label(canvas_homepg, text="Choco-Charm Craze",bg="#B0DAFF" ,fg="black", 
                        font=("Times 20 italic bold", 19, "bold","italic"))
-username_label.place(x=1086, y=412)
+username_label.place(x=1086, y=442)
 
 
 #Clear Btn
-stylish_button_delete1 = tk.Button(canvas_homepg, text="Clear List", font=("Arial", 12, "bold"),padx=26,pady=4, bg="RED", fg="white", bd=4,
+stylish_button_delete1 = tk.Button(canvas_homepg, text="Clear List", font=("Arial", 9, "bold"),padx=23,pady=3, bg="RED", fg="white", bd=4,
                                 command=clear_list)
 stylish_button_delete1.place(relx=0.5, rely=0.93, anchor="center")
 
 
 #Show Selected Btn
-show_selected_button = tk.Button(canvas_homepg, text="Show Selected Products", font=("Arial", 12, "bold"),padx=29,pady=6, bg="GREEN", fg="white", bd=4,
+show_selected_button = tk.Button(canvas_homepg, text="Show Selected Products", font=("Arial", 12, "bold"),padx=29,pady=6, bg="#11009E", fg="white", bd=4,
                                 command=lambda: show_selected_products(selected_products))
 show_selected_button.place(relx=0.5, rely=0.85, anchor="center")
 
+# Function to handle navbar button clicks
+def navigate_to(section):
+    # Add logic to navigate to different sections based on the button clicked
+    if section == "Home":
+        # Add logic for Home page
+        print("Navigate to Home")
+    elif section == "Products":
+        # Add logic for Products page
+        print("Navigate to Products")
+    elif section == "About Us":
+        # Add logic for About Us page
+        print("Navigate to About Us")
+
+# Function to create a navbar button
+# def create_navbar_button(text, command, x_position):
+#     button = Button(homepg, text=text, font=("Arial", 10, "bold"), bg="#1640D6", fg="white",padx=120, bd=4, command=command)
+#     button.place(relx=x_position, rely=0.01,)
+    
+# Create navbar buttons
+def create_navbar_button(frame, text, command):
+    button = Button(frame, text=text, font=("Arial", 10, "bold"), bg="#1640D6", fg="white", padx=20, pady=5, bd=4, command=command)
+    button.pack(side=LEFT, padx=20)
+
+# Create a frame in the given canvas
+navbar_frame = Frame(canvas_homepg, bg='#83A2FF', height=50)
+navbar_frame.place(relx=0, rely=0, anchor='nw', width=1700)
+
+# Create navbar buttons inside the frame
+create_navbar_button(navbar_frame, "Home", lambda: navigate_to("Home"))
+create_navbar_button(navbar_frame, "Products", lambda: navigate_to("Products"))
+create_navbar_button(navbar_frame, "About Us",command=open_aboutus_window)
+
+
+    
 homepg.mainloop()
