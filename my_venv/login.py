@@ -13,7 +13,6 @@ root.geometry("1450x720+45+20")
 root.resizable(True, True)
 def open_signup_window():
     root.destroy()  # Close the current window if needed
-    # Importing SignUp module and calling its main function
     import signup
     signup.main()
  

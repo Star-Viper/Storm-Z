@@ -1,5 +1,4 @@
 from tkinter import Tk, Label, Entry, Frame, PhotoImage, Canvas, Button
-from PIL import ImageTk
 import tkinter as tk
 
 root = tk.Tk()
