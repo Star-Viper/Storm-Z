@@ -1,4 +1,4 @@
-# Storm Z Immunity Booster Sales System
+# Storm Z Immunity Booster 
 
 ## Overview
 
