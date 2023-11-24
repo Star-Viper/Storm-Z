@@ -11,6 +11,7 @@ Storm Z Immunity Booster Sales System is a Python application built using Tkinte
 - Product catalog showcasing the four flavors of Storm Z.
 - Sales functionality to process customer orders.
 - Basic reporting features to view sales data.
+- Admin login to watch the history
 
 ## Prerequisites
 
