@@ -2,7 +2,8 @@
 
 ## Overview
 
-Storm Z Immunity Booster Sales System is a Python application built using Tkinter for the user interface and MySQL for database management. The purpose of this project is to facilitate the selling of "Storm Z," an immunity booster available in four different flavors.
+Storm Z Immunity Booster Sales System is a Python application built using Tkinter for the user interface and MySQL for database management. 
+The purpose of this project is to facilitate the selling of "Storm Z," an immunity booster available in four different flavors.
 
 ## Features
 
