@@ -1,4 +1,4 @@
-# Storm Z Immunity Booster 
+# Storm Z Immunity Booster Python GUI
 
 ## Overview
 
